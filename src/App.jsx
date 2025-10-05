@@ -9,19 +9,32 @@ function App() {
   if (loading) return <div className="p-6 text-lg">loading...</div>;
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">open trivia visualizer</h1>
-      <CategoryChart questions={questions} />
-      <DifficultyChart questions={questions} />
+    <div className="min-h-screen bg-background p-6">
+      <div className="max-w-5xl mx-auto">
+        <header className="mb-8 text-center">
+          <h1 className="text-4xl font-bold">open trivia visualizer</h1>
+          <p className="text-gray-600 mt-2">
+            explore questions by category and difficulty
+          </p>
+        </header>
 
-      <ul className="list-disc ml-5">
-        {questions.map((q, i) => (
-          <li key={i}>
-            <strong>{decodeHTML(q.category)}</strong> — {q.difficulty} —{" "}
-            {decodeHTML(q.question)}
-          </li>
-        ))}
-      </ul>
+        <section className="bg-white rounded-lg shadow p-6 mb-6">
+          <CategoryChart questions={questions} />
+        </section>
+
+        <section className="bg-white rounded-lg shadow p-6 mb-6">
+          <DifficultyChart questions={questions} />
+        </section>
+
+        <ul className="list-disc ml-5">
+          {questions.map((q, i) => (
+            <li key={i}>
+              <strong>{decodeHTML(q.category)}</strong> — {q.difficulty} —{" "}
+              {decodeHTML(q.question)}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
