@@ -1,11 +1,6 @@
 import { useApi } from "./hooks/useApi";
 import CategoryChart from "./components/CategoryChart";
-
-function decodeHTML(html) {
-  const txt = document.createElement("textarea");
-  txt.innerHTML = html;
-  return txt.value;
-}
+import { decodeHTML } from "./utils/decodeHTML";
 
 function App() {
   const { questions, loading } = useApi();

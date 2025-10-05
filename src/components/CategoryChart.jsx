@@ -6,6 +6,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { decodeHTML } from "../utils/decodeHTML";
 
 export default function CategoryChart({ questions }) {
   const categoryCounts = questions.reduce((acc, question) => {
@@ -15,7 +16,7 @@ export default function CategoryChart({ questions }) {
   }, {});
 
   const data = Object.entries(categoryCounts).map(([category, count]) => ({
-    category,
+    category: decodeHTML(category),
     count,
   }));
 
