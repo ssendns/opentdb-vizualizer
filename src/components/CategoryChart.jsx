@@ -55,7 +55,7 @@ export default function CategoryChart({ questions }) {
       </h2>
 
       <div className="flex flex-col md:flex-row items-center gap-6">
-        <div className="w-full md:w-2/3 h-[300px]">
+        <div className="hidden md:block w-full md:w-2/3 h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -67,13 +67,36 @@ export default function CategoryChart({ questions }) {
                 nameKey="name"
                 label={({ name, value }) => {
                   const percent = (value / total) * 100;
-                  return percent >= 10 ? name : "";
+                  return percent >= 10 ? getLegendLabel(name) : "";
                 }}
                 labelLine={false}
               >
                 {data.map((_, index) => (
                   <Cell
-                    key={`cell-${index}`}
+                    key={`cell-md-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="block md:hidden w-full h-[300px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={data}
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                dataKey="value"
+                nameKey="name"
+              >
+                {data.map((_, index) => (
+                  <Cell
+                    key={`cell-sm-${index}`}
                     fill={COLORS[index % COLORS.length]}
                   />
                 ))}
