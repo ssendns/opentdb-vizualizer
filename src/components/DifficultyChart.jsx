@@ -20,8 +20,10 @@ export default function DifficultyChart({ questions }) {
   }));
 
   return (
-    <div className="mt-12">
-      <h2 className="text-xl font-semibold mb-2">questions per difficulty</h2>
+    <div className="mt-5">
+      <h2 className="text-xl font-semibold mb-2 text-center">
+        questions per difficulty
+      </h2>
       <ResponsiveContainer width="100%" height={250}>
         <BarChart data={data}>
           <XAxis dataKey="difficulty" />

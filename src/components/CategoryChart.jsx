@@ -49,7 +49,7 @@ export default function CategoryChart({ questions }) {
   const total = data.reduce((sum, d) => sum + d.value, 0);
 
   return (
-    <div className="mt-8 px-4">
+    <div className="mt-5 px-4">
       <h2 className="text-xl font-semibold mb-4 text-gray-800 text-center">
         questions per category
       </h2>
