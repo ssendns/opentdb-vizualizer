@@ -1,5 +1,11 @@
 import { useApi } from "./hooks/useApi";
 
+function decodeHTML(html) {
+  const txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
+}
+
 function App() {
   const { questions, loading } = useApi();
 
@@ -12,7 +18,8 @@ function App() {
       <ul className="list-disc ml-5">
         {questions.map((q, i) => (
           <li key={i}>
-            <strong>{q.category}</strong> — {q.difficulty} — {q.question}
+            <strong>{decodeHTML(q.category)}</strong> — {q.difficulty} —{" "}
+            {decodeHTML(q.question)}
           </li>
         ))}
       </ul>
