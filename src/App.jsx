@@ -1,4 +1,5 @@
 import { useApi } from "./hooks/useApi";
+import CategoryChart from "./components/CategoryChart";
 
 function decodeHTML(html) {
   const txt = document.createElement("textarea");
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-4">open trivia visualizer</h1>
+      <CategoryChart questions={questions} />
 
       <ul className="list-disc ml-5">
         {questions.map((q, i) => (
