@@ -2,8 +2,6 @@
 
 a simple web app to explore and answer questions from the Open Trivia Database
 
----
-
 ## features
 
 - interactive pie and bar charts (category and difficulty)
@@ -11,8 +9,6 @@ a simple web app to explore and answer questions from the Open Trivia Database
 - category filter dropdown
 - reload the page to fetch a new question set
 - clean, responsive UI with smooth loading experience
-
----
 
 ## tech stack
 
