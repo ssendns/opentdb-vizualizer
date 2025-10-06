@@ -1,6 +1,6 @@
 # open trivia visualizer
 
-a simple web app to explore trivia questions by category and difficulty. built with **React**, **Tailwind CSS**, and **Recharts**
+a simple web app to explore and answer questions from the Open Trivia Database
 
 ---
 
