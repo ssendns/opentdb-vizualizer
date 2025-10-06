@@ -1,7 +1,7 @@
 import { useApi } from "./hooks/useApi";
 import CategoryChart from "./components/CategoryChart";
 import DifficultyChart from "./components/DifficultyChart";
-import { decodeHTML } from "./utils/decodeHTML";
+import QuestionCard from "./components/QuestionCard";
 
 function App() {
   const { questions, loading } = useApi();
@@ -12,9 +12,9 @@ function App() {
     <div className="min-h-screen bg-background p-6">
       <div className="max-w-5xl mx-auto">
         <header className="mb-8 text-center">
-          <h1 className="text-4xl font-bold">open trivia visualizer</h1>
+          <h1 className="text-4xl font-bold">questions visualizer</h1>
           <p className="text-gray-600 mt-2">
-            explore questions by category and difficulty
+            reload the page to get a new set of questions
           </p>
         </header>
 
@@ -26,14 +26,18 @@ function App() {
           <DifficultyChart questions={questions} />
         </section>
 
-        <ul className="list-disc ml-5">
+        <hr className="border-t border-gray-300 my-10" />
+
+        <header className="mb-8 text-center">
+          <h1 className="text-4xl font-bold">all questions</h1>
+          <p className="text-gray-600 mt-2">use filter to select a category</p>
+        </header>
+
+        <div className="space-y-6">
           {questions.map((q, i) => (
-            <li key={i}>
-              <strong>{decodeHTML(q.category)}</strong> — {q.difficulty} —{" "}
-              {decodeHTML(q.question)}
-            </li>
+            <QuestionCard key={i} questionObj={q} />
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
