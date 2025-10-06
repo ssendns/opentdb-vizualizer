@@ -18,7 +18,15 @@ function App() {
       ? questions
       : questions.filter((q) => q.category === selectedCategory);
 
-  if (loading) return <div className="p-6 text-lg">loading...</div>;
+  if (loading)
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-background">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-10 h-10 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-gray-600 text-sm">loading questions...</p>
+        </div>
+      </div>
+    );
 
   return (
     <div className="min-h-screen bg-background p-6">
