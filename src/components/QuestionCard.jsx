@@ -9,7 +9,7 @@ export default function QuestionCard({ questionObj }) {
     return [...incorrect_answers, correct_answer].sort(
       () => Math.random() - 0.5
     );
-  }, []);
+  }, [questionObj]);
 
   const handleAnswerClick = (ans) => {
     if (!selected) {
